@@ -6,12 +6,4 @@ html,body{
     display: block;
 }
 
-ul{
-    position: relative;
-}
-
-.list{
-    list-style-type: none;
-    position: absolute;
-}
 
