@@ -6,6 +6,45 @@ let coords = [];
 canv.width = window.innerWidth;
 canv.height = window.innerHeight;
 
+
+
+// Basic text for settings
+
+
+
+ctx.font = '16px Arial';
+ctx.fillStyle = '#72305f';
+ctx.fillText('Just use your finger or mouse to draw.', 50, 75);
+
+ctx.fillStyle = '#e53c1e';
+ctx.fillText(' Click w to start.', 46, 100); 
+
+
+ctx.font = '14px Arial'
+ctx.fillStyle = '#000';
+ctx.fillText('Click s to save.', 50, 125);
+ctx.fillText(' Click r to replay what you saved.', 46, 150);
+ctx.fillText(' Click c to clear.', 46, 175);
+
+
+document.addEventListener('keydown', (e) => {
+   
+
+    if (e.keyCode === 87){
+         //start
+        ctx.fillStyle = '#fff';
+        ctx.fillRect(0,0, canv.width, canv.height);
+
+        ctx.beginPath();
+        ctx.fillStyle = '#000';
+         
+    }
+
+});
+
+
+
+
 // Code
 
 canv.addEventListener('mousedown', () =>{
