@@ -6,43 +6,12 @@ let coords = [];
 canv.width = window.innerWidth;
 canv.height = window.innerHeight;
 
+// stage
 
 
-// Basic text for settings
-
-
-
-// ctx.font = '16px Arial';
-// ctx.fillStyle = '#72305f';
-// ctx.fillText('Just use your finger or mouse to draw.', 50, 75);
-
-// ctx.fillStyle = '#e53c1e';
-// ctx.fillText(' Click w to start.', 46, 100); 
-
-
-// ctx.font = '14px Arial'
-// ctx.fillStyle = '#000';
-// ctx.fillText('Click s to save.', 50, 125);
-// ctx.fillText(' Click r to replay what you saved.', 46, 150);
-// ctx.fillText(' Click c to clear.', 46, 175);
-
-
-// document.addEventListener('keydown', (e) => {
-   
-
-//     if (e.keyCode === 87){
-//          //start
-//         ctx.fillStyle = '#fff';
-//         ctx.fillRect(0,0, canv.width, canv.height);
-
-//         ctx.beginPath();
-//         ctx.fillStyle = '#000';
-         
-//     }
-
-// });
-
-
+let one = false;
+let two = false;
+let three = false;
 
 
 // Code
@@ -99,6 +68,11 @@ function replay (){
 }
 
 
+function save1(){
+    window.open(canvas.toDataURL('image/png'), 'new_window');
+}
+
+
 // basic functions for mouse stage
 
 canv.addEventListener('mousedown', () =>{
@@ -117,16 +91,26 @@ canv.addEventListener('mouseup', () =>{
 
 
 
-// brash 
+// brush 
 
 let brush = document.getElementById('brush');
 
 brush.addEventListener('click', () => {
+     
+    one  = true;
+    
 
+    if( one === true ){
+     
+        
+
+    two = false;
+    three = false; 
+      
 
     canv.addEventListener('mousemove', (e) =>{
    
-        if( isMouseDown ){
+        if( isMouseDown && one ){
         
         coords.push([e.clientX, e.clientY]);
         ctx.lineTo(e.clientX, e.clientY);
@@ -143,6 +127,7 @@ brush.addEventListener('click', () => {
        
 });
 
+}
 
 
 });
@@ -155,12 +140,27 @@ let arc = document.getElementById('arc');
 
 arc.addEventListener('click', () => {
    
+    two = true;
+
+    if( two === true ) {
+
+    one  = false;
+    three = false;
+   
     canv.addEventListener('mousedown', (e) => {
+        
+        if( isMouseDown && two ){
+
         coords.push([e.clientX, e.clientY]);
         ctx.beginPath();
         ctx.arc(e.clientX, e.clientY, 30, 0, Math.PI * 2);
         ctx.fill(); 
+
+    }
+
     });
+    
+}  
 
 });
 
@@ -171,11 +171,20 @@ let line = document.getElementById('line');
 
 line.addEventListener('click', () =>{
 
+   three = true;
+
+   if( three === true ) {
+   
+   
+
+   one  = false;
+   two  = false;
+
    
    
     canv.addEventListener('mousemove', (e) =>{
    
-        if( isMouseDown ){
+        if( isMouseDown && three ){
         
         coords.push([e.clientX, e.clientY]);
         ctx.lineTo(e.clientX, e.clientY);
@@ -190,7 +199,9 @@ line.addEventListener('click', () =>{
         ctx.moveTo(e.clientX, e.clientY);
     }
        
-});
+   });
+
+   }
 
 });
 

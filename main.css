@@ -13,7 +13,7 @@ html,body{
 
 .list{
     position: absolute;
-    transform: translateY(-250%);
+    transform: translateY(-450%);
     list-style: none;
     margin: 10px;
     padding: 0;
