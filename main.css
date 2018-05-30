@@ -40,7 +40,15 @@ html,body{
 }
 
 
-
+.picColor{
+    position: absolute;
+    transform: translateY(-2100%);
+    margin-left: 10px;
+    cursor: pointer;
+    background: transparent;
+    outline: none;
+    border-radius: 5px;
+}
 
 
 

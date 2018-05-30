@@ -115,10 +115,12 @@ brush.addEventListener('click', () => {
         coords.push([e.clientX, e.clientY]);
         ctx.lineTo(e.clientX, e.clientY);
         ctx.lineWidth = 10 * 2;
+        ctx.strokeStyle = input.value;
         ctx.stroke();
     
         ctx.beginPath();
         ctx.arc(e.clientX, e.clientY, 10, 0 , Math.PI * 2);
+        ctx.fillStyle = input.value;
         ctx.fill();
     
         ctx.beginPath();
@@ -154,6 +156,7 @@ arc.addEventListener('click', () => {
         coords.push([e.clientX, e.clientY]);
         ctx.beginPath();
         ctx.arc(e.clientX, e.clientY, 30, 0, Math.PI * 2);
+        ctx.fillStyle = input.value;
         ctx.fill(); 
 
     }
@@ -188,7 +191,7 @@ line.addEventListener('click', () =>{
         
         coords.push([e.clientX, e.clientY]);
         ctx.lineTo(e.clientX, e.clientY);
-     
+        ctx.strokeStyle = input.value;
         ctx.stroke();
     
         // ctx.beginPath();
@@ -206,11 +209,17 @@ line.addEventListener('click', () =>{
 });
 
 
+// set color
+
+let input = document.querySelector('input');
+input.value = '#000000';
 
 
-
-
-
+input.addEventListener('change', (e) =>{
+    
+    return e.target.value;
+    
+});
 
 
 document.addEventListener('keydown', (e) => {
@@ -237,6 +246,8 @@ document.addEventListener('keydown', (e) => {
        console.log('Cleared');
     }
 });
+
+
 
 
 
