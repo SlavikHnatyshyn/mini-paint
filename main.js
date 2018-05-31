@@ -55,7 +55,7 @@ function replay (){
 
     ctx.beginPath();
     ctx.arc(e.clientX, e.clientY, 10, 0 , Math.PI * 2);
-    
+    ctx.fillStyle = input.value;
     ctx.fill();
 
     ctx.beginPath();
@@ -64,6 +64,10 @@ function replay (){
 
 
    },30);
+   
+   
+
+
 
 }
 
