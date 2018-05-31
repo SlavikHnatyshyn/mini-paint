@@ -72,11 +72,6 @@ function replay (){
 }
 
 
-function save1(){
-    window.open(canvas.toDataURL('image/png'), 'new_window');
-}
-
-
 // basic functions for mouse stage
 
 canv.addEventListener('mousedown', () =>{
@@ -157,7 +152,6 @@ arc.addEventListener('click', () => {
         
         if( isMouseDown && two ){
 
-        coords.push([e.clientX, e.clientY]);
         ctx.beginPath();
         ctx.arc(e.clientX, e.clientY, 30, 0, Math.PI * 2);
         ctx.fillStyle = input.value;
@@ -193,14 +187,10 @@ line.addEventListener('click', () =>{
    
         if( isMouseDown && three ){
         
-        coords.push([e.clientX, e.clientY]);
+      
         ctx.lineTo(e.clientX, e.clientY);
         ctx.strokeStyle = input.value;
         ctx.stroke();
-    
-        // ctx.beginPath();
-        // ctx.arc(e.clientX, e.clientY, 5, 0 , Math.PI * 2);
-        // ctx.fill();
     
         ctx.beginPath();
         ctx.moveTo(e.clientX, e.clientY);
@@ -225,6 +215,8 @@ input.addEventListener('change', (e) =>{
     
 });
 
+
+// keydown
 
 document.addEventListener('keydown', (e) => {
        
